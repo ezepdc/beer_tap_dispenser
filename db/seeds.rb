@@ -6,7 +6,7 @@ Spending.destroy_all
 puts "Creating..."
 
 user = User.create(
-  email: "info@agendaprop.com",
+  email: "eze@pdc.com",
   password: "123456"
 )
 puts "User with id: #{user.id} has been created"
