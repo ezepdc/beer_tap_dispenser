@@ -9,6 +9,10 @@ class DispenserPolicy < ApplicationPolicy
     true
   end
 
+  def update?
+    record.user == user
+  end
+
   def create?
     user.present?
   end
