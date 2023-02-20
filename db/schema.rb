@@ -15,11 +15,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_15_162208) do
   enable_extension "plpgsql"
 
   create_table "dispensers", force: :cascade do |t|
-    t.string "opened_at"
-    t.string "closed_at"
-    t.integer "flow_volume", null: false
-    t.integer "price"
-    t.integer "total_spent"
+    t.float "flow_volume", null: false
+    t.float "price"
+    t.float "amount"
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -27,8 +25,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_15_162208) do
   end
 
   create_table "spendings", force: :cascade do |t|
-    t.string "opened_at"
-    t.string "closed_at"
+    t.float "opened_at"
+    t.float "closed_at"
+    t.float "flow_volume"
+    t.float "total_spent"
     t.bigint "dispenser_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

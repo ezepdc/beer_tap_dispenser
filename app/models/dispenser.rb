@@ -3,7 +3,12 @@ class Dispenser < ApplicationRecord
   has_many :spendings
   validates :flow_volume, presence: true
 
-  def calc
-    (closed_at.to_i - opened_at.to_i) * flow_volume.to_i * price.to_i
+  def status(id)
+    if Spending.where(dispenser: id).present?
+      if Spending.where(dispenser: id).last.closed_at.nil?
+        "open"
+      end
+    end
   end
+
 end
